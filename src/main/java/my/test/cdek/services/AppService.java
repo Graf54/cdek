@@ -27,11 +27,15 @@ public class AppService {
     }
 
     public void save(App app) {
-        if (appDao.isExist(app.getId())) {
+        if (isExist(app.getId())) {
             appDao.update(app);
         } else {
             appDao.create(app);
         }
+    }
+
+    public boolean isExist(int id) {
+        return appDao.isExist(id);
     }
 
     public void delete(App app) {

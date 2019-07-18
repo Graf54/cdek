@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.LinkedList;
+import java.util.List;
+
 @Controller
 public class MainController {
     @Autowired
@@ -19,20 +22,45 @@ public class MainController {
     public String index(Model model) {
 
         model.addAttribute("apps", appService.getList(10, 0));
-        model.addAttribute("idFind", 0);
+        model.addAttribute("idNotFound", 0);
 
         return "index";
     }
 
-    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/search", method = RequestMethod.GET)
     public String find(@ModelAttribute("id") int id, Model model) {
-        model.addAttribute("apps", appService.getList(10, 0));
-        App app = appService.get(id);
-        if (app != null) {
-            model.addAttribute("idFind", id);
-            model.addAttribute("findApp", app);
+        if (appService.isExist(id)) {
+            List<App> apps = new LinkedList<>();
+            apps.add(appService.get(id));
+            model.addAttribute("idNotFound", 0);
+            model.addAttribute("apps", apps);
+            return "index";
+        } else {
+            model.addAttribute("idNotFound", id);
+            model.addAttribute("apps", appService.getList(10, 0));
+            return "index";
         }
-        return "index";
+    }*/
+
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public String find(@ModelAttribute("id") String idStr, Model model) {
+        if (idStr != null && !idStr.isEmpty()) {
+            int id = Integer.parseInt(idStr);
+            if (appService.isExist(id)) {
+                List<App> apps = new LinkedList<>();
+                apps.add(appService.get(id));
+                model.addAttribute("idNotFound", 0);
+                model.addAttribute("apps", apps);
+                return "index";
+
+            } else {
+                model.addAttribute("idNotFound", id);
+                model.addAttribute("apps", appService.getList(10, 0));
+                return "index";
+            }
+        } else {
+            return "redirect:/index";
+        }
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)

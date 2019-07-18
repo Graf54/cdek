@@ -23,6 +23,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
+        <!--    thymeleaf добавил т.к. не получил ответа запрещено  использовать ли freemarker    -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>

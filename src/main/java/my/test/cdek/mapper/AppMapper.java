@@ -12,12 +12,21 @@ public interface AppMapper {
     int insertApp(App app);
 
     @Select("Select * from app where id = #{id}")
+    @Results(value = {
+            @Result(property = "statusId", column = "status_id")
+    })
     App getAppCustom(int id);
 
     @Select("Select * from app order by id limit #{limit} offset #{offset} ")
+    @Results(value = {
+            @Result(property = "statusId", column = "status_id")
+    })
     List<App> getAppCustomLimit(int limit, int offset);
 
     @Select("Select * from app where status_id=#{statusId} order by id limit #{limit} offset #{offset} ")
+    @Results(value = {
+            @Result(property = "statusId", column = "status_id")
+    })
     List<App> getAppCustomByStatus(int statusId, int limit, int offset);
 
     @Update("UPDATE app set phone = #{phone}, status_id = #{statusId} where id = #{id}")
