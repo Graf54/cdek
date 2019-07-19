@@ -90,28 +90,6 @@
             </#list>
             </tbody>
         </table>
-        <#if (total>limit)>
-
-
-            <div class="container mt-3">
-                <div class="row">
-                    <ul class="pagination col justify-content-center">
-                        <li class="page-item active">
-                            <a class="page-link" href="/changePage?button=back&currentPage=${currentPage}"
-                               tabindex="-1">Назад</a>
-                        </li>
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#"
-                               tabindex="-1">${currentPage}</a>
-                        </li>
-                        <li class="page-item active">
-                            <a class="page-link" href="/changePage?button=next&currentPage=${currentPage}"
-                               tabindex="-1">Вперед</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </#if>
     </div>
 
 </@layout.mainLayout>

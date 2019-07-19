@@ -31,7 +31,6 @@
                             <button type="submit" class="btn btn-primary">Не успеваю</button>
                         </div>
                     </form>
-                    <a href="/cancel?id=${app.id}" class="btn btn-danger float-right mr-2" role="button">Не успеваю</a>
                 </td>
             </tr>
         </#list>
