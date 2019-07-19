@@ -20,4 +20,6 @@ public interface AppDao {
     List<App> getAll(int limit, int offset);
 
     List<App> getAll(int statusId, int limit, int offset);
+
+    int count();
 }

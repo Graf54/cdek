@@ -50,4 +50,9 @@ public class AppDaoBatis implements AppDao {
     public List<App> getAll(int statusId, int limit, int offset) {
         return mapper.getAppCustomByStatus(statusId, limit, offset);
     }
+
+    @Override
+    public int count() {
+        return mapper.count();
+    }
 }

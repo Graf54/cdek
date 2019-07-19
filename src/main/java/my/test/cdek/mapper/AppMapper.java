@@ -38,4 +38,7 @@ public interface AppMapper {
     @Select("SELECT count(*) from app where id = #{id}")
     int countById(int id);
 
+    @Select("SELECT count(*) from app")
+    int count();
+
 }

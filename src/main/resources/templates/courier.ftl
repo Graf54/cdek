@@ -25,6 +25,12 @@
                     <td>⛔️</td>
                 </#if>
                 <td>
+                    <form action="/cancel" method="post">
+                        <div class="form-group">
+                            <input type="hidden" id="id" name="id" value="${app.id}">
+                            <button type="submit" class="btn btn-primary">Не успеваю</button>
+                        </div>
+                    </form>
                     <a href="/cancel?id=${app.id}" class="btn btn-danger float-right mr-2" role="button">Не успеваю</a>
                 </td>
             </tr>

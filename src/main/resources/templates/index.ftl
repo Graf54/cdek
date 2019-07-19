@@ -17,7 +17,8 @@
             <tr>
                 <td>
                     <div class="form-group">
-                        <input type="text" class="form-control" required="required" minlength="3" maxlength="50" id="phone" name="phone"
+                        <input type="text" class="form-control" required="required" minlength="3" maxlength="50"
+                               id="phone" name="phone"
                                placeholder="Введите номер телефона"
                                value="">
                     </div>
@@ -55,7 +56,7 @@
                             </div>
                         <#else >
                             <div class="form-group">
-                                <input type="number"  class="form-control" min="1" id="id" name="id"
+                                <input type="number" class="form-control" min="1" id="id" name="id"
                                        placeholder="По номеру"
                                        value="">
                             </div>
@@ -89,6 +90,28 @@
             </#list>
             </tbody>
         </table>
+        <#if (total>limit)>
+
+
+            <div class="container mt-3">
+                <div class="row">
+                    <ul class="pagination col justify-content-center">
+                        <li class="page-item active">
+                            <a class="page-link" href="/changePage?button=back&currentPage=${currentPage}"
+                               tabindex="-1">Назад</a>
+                        </li>
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#"
+                               tabindex="-1">${currentPage}</a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" href="/changePage?button=next&currentPage=${currentPage}"
+                               tabindex="-1">Вперед</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </#if>
     </div>
 
 </@layout.mainLayout>

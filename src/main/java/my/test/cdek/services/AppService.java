@@ -43,4 +43,8 @@ public class AppService {
     }
 
 
+    public int count() {
+        return appDao.count();
+    }
+
 }
