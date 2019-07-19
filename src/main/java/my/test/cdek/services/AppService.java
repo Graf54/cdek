@@ -42,6 +42,10 @@ public class AppService {
         appDao.delete(app.getId());
     }
 
+    public void delete(int appId) {
+        appDao.delete(appId);
+    }
+
 
     public int count() {
         return appDao.count();
